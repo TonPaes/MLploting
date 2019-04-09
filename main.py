@@ -30,22 +30,9 @@ def plot_decision_region(X, Y, classifier, test_idx="none", resolution=0.02):
     # plot all samples
     X_test, y_test = X[test_idx, :], Y[test_idx]
     for idx, cl in enumerate(np.unique(Y)):
-        plt.scatter(
-            x=X[Y == cl, 0],
-            y=X[Y == cl, 1],
-            alpha=1,
-            c=cmap(idx),
-            marker=markers[idx],
-            label=cl)
+        plt.scatter(x=X[Y == cl, 0], y=X[Y == cl, 1], alpha=1, c=cmap(idx), marker=markers[idx], label=cl)
 
     # highlight test samples
     if test_idx:
         X_test, y_test = X[test_idx, :], Y[test_idx] 
-        plt.scatter(
-            x=X_test[:, 0],
-            y=X_test[:, 1],
-            alpha=1.0,
-            linewidth=1,
-            marker='o',
-            s=55,
-            label='test set')
+        plt.scatter(x=X_test[:, 0], y=X_test[:, 1], alpha=1.0, linewidth=1, marker='o', s=55, label='test set')
